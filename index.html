@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouf Temimi — Wedding Design | April 24, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --off-white: #FAF9F6;
+            --cream: #F5F0E8;
+            --beige: #D4C4A8;
+            --beige-dark: #C4B49A;
+            --charcoal: #3D3D3D;
+            --warm-gray: #8B8680;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--off-white);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .serif { 
+            font-family: 'Cormorant Garamond', serif; 
+            font-weight: 300;
+        }
+        
+        /* Logo - Fixed */
+        .logo-fixed {
+            position: fixed;
+            top: 32px;
+            left: 32px;
+            z-index: 1000;
+            height: 45px;
+            width: auto;
+            filter: brightness(0.2);
+            opacity: 0.9;
+            transition: filter 0.3s ease;
+        }
+        
+        .logo-fixed.light {
+            filter: brightness(0) invert(1);
+        }
+        
+        @media (max-width: 768px) {
+            .logo-fixed { height: 38px; top: 20px; left: 20px; }
+        }
+
+        /* Navigation Dots */
+        .nav-dots {
+            position: fixed;
+            right: 32px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .nav-dot.active {
+            background: var(--beige-dark);
+            transform: scale(1.5);
+        }
+        
+        .nav-dot:hover {
+            background: var(--beige);
+        }
+
+        /* Hero Section - Full Screen Image */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(to top, rgba(61,61,61,0.7) 0%, transparent 60%),
+                        url('https://i.imgur.com/h0C6vcn.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            margin-bottom: 40px;
+        }
+
+        .wedding-date {
+            color: var(--cream);
+            font-size: 12px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        h1 {
+            font-size: clamp(48px, 10vw, 88px);
+            font-weight: 300;
+            line-height: 1;
+            margin-bottom: 16px;
+            color: white;
+            letter-spacing: -1px;
+        }
+
+        .bride-name {
+            font-size: clamp(36px, 8vw, 72px);
+            color: var(--cream);
+            font-style: italic;
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+
+        .hero-subtitle {
+            font-size: 14px;
+            color: rgba(255,255,255,0.9);
+            max-width: 400px;
+            margin: 0 auto;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .designer-credit {
+            position: absolute;
+            bottom: 32px;
+            right: 32px;
+            text-align: right;
+            z-index: 50;
+        }
+        
+        @media (max-width: 768px) {
+            .designer-credit { 
+                bottom: 20px; 
+                right: 20px;
+                left: 20px;
+                text-align: center;
+            }
+        }
+
+        .designer-credit p:first-child {
+            color: var(--cream);
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .designer-credit p:last-child {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 20px;
+            color: white;
+            font-weight: 400;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            color: var(--beige-dark);
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        h2 {
+            font-size: clamp(28px, 4vw, 48px);
+            font-weight: 300;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .concept-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(20px, 2.5vw, 26px);
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--warm-gray);
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Simple Color Palette - 3 Colors */
+        .colors-simple {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            max-width: 700px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .color-item {
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .color-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .color-circle {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            margin-bottom: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            border: 3px solid white;
+            transition: transform 0.3s ease;
+        }
+
+        .color-item:hover .color-circle {
+            transform: scale(1.1);
+        }
+
+        .color-name-simple {
+            font-size: 11px;
+            color: var(--charcoal);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .color-hex-simple {
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 12px;
+            color: var(--warm-gray);
+            letter-spacing: 1px;
+        }
+
+        /* Editorial Gallery Layout */
+        .gallery-editorial {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-editorial { 
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .gallery-editorial { 
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .editorial-card {
+            position: relative;
+            background: var(--cream);
+            overflow: hidden;
+            aspect-ratio: 4/5;
+        }
+
+        .editorial-card.featured {
+            aspect-ratio: 3/4;
+        }
+
+        @media (min-width: 768px) {
+            .editorial-card:nth-child(1) { grid-column: span 2; aspect-ratio: 16/9; }
+            .editorial-card:nth-child(4) { grid-column: span 2; aspect-ratio: 16/9; }
+            .editorial-card:nth-child(7) { grid-column: span 2; aspect-ratio: 16/9; }
+            .editorial-card:nth-child(10) { grid-column: span 2; aspect-ratio: 16/9; }
+        }
+
+        .editorial-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: sepia(10%);
+        }
+
+        .editorial-card:hover img {
+            transform: scale(1.03);
+            filter: sepia(0%);
+        }
+
+        .editorial-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(61,61,61,0.9) 0%, transparent 100%);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .editorial-card:hover .editorial-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .caption-label {
+            color: var(--cream);
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .caption-title {
+            font-family: 'Cormorant Garamond', serif;
+            color: white;
+            font-size: 24px;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        /* Date Badge */
+        .date-badge {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            background: var(--beige);
+            color: var(--charcoal);
+            padding: 24px 32px;
+            border-radius: 0;
+            z-index: 100;
+            text-align: center;
+            border: 1px solid var(--cream);
+        }
+        
+        .date-badge-label {
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+        
+        .date-badge-date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        @media (max-width: 768px) {
+            .date-badge {
+                bottom: 20px;
+                right: 20px;
+                left: 20px;
+                position: relative;
+                margin-top: 40px;
+            }
+            .nav-dots { display: none; }
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 24px;
+            background: var(--beige);
+            text-align: center;
+            position: relative;
+            color: var(--charcoal);
+        }
+
+        .footer-logo {
+            height: 45px;
+            width: auto;
+            filter: brightness(0.2);
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+
+        .footer-bride {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(36px, 7vw, 64px);
+            margin-bottom: 8px;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--charcoal);
+        }
+        
+        .footer-date {
+            color: var(--beige-dark);
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+            font-weight: 500;
+        }
+
+        .footer-designer p:first-child {
+            color: var(--warm-gray);
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .footer-designer p:last-child {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 24px;
+            color: var(--charcoal);
+        }
+
+        .footer-role {
+            color: var(--warm-gray);
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 24px;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--beige);
+            color: var(--charcoal);
+            padding: 16px 32px;
+            border-radius: 0;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1000;
+            border: 1px solid var(--cream);
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fixed Logo -->
+    <img src="https://i.imgur.com/uJqy10F.jpeg" alt="Logo" class="logo-fixed" id="mainLogo">
+
+    <!-- Navigation Dots -->
+    <div class="nav-dots">
+        <div class="nav-dot active" onclick="scrollToSection(0)"></div>
+        <div class="nav-dot" onclick="scrollToSection(1)"></div>
+        <div class="nav-dot" onclick="scrollToSection(2)"></div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="section-0" style="padding: 0; max-width: 100%;">
+        <div class="hero-content">
+            <p class="wedding-date fade-in">April 24, 2026</p>
+            
+            <h1 class="fade-in" style="transition-delay: 0.2s;">
+                <span class="bride-name serif">Nouf Temimi</span>
+            </h1>
+            
+            <p class="hero-subtitle fade-in" style="transition-delay: 0.4s;">
+                An elegant celebration of love, light, and timeless beauty
+            </p>
+        </div>
+        
+        <div class="designer-credit fade-in" style="transition-delay: 0.6s;">
+            <p>Designed by</p>
+            <p>Mohamed Tunis</p>
+        </div>
+    </section>
+
+    <!-- CONCEPT & PALETTE -->
+    <section id="section-1">
+        <div class="section-header">
+            <p class="section-label fade-in">Design Concept</p>
+            <h2 class="fade-in serif">Natural Elegance</h2>
+            <p class="concept-text fade-in">
+                A harmonious blend of warm neutrals creates an atmosphere of serene sophistication. Cream, beige, and soft white tones evoke timeless grace and natural beauty.
+            </p>
+        </div>
+
+        <div class="colors-simple" style="margin-top: 60px;">
+            <div class="color-item fade-in" onclick="copyColor('#FAF9F6')">
+                <div class="color-circle" style="background: #FAF9F6; border-color: #E8E4D9;"></div>
+                <p class="color-name-simple">Off White</p>
+                <p class="color-hex-simple">#FAF9F6</p>
+            </div>
+            
+            <div class="color-item fade-in" onclick="copyColor('#F5F0E8')" style="transition-delay: 0.1s;">
+                <div class="color-circle" style="background: #F5F0E8;"></div>
+                <p class="color-name-simple">Cream</p>
+                <p class="color-hex-simple">#F5F0E8</p>
+            </div>
+            
+            <div class="color-item fade-in" onclick="copyColor('#D4C4A8')" style="transition-delay: 0.2s;">
+                <div class="color-circle" style="background: #D4C4A8;"></div>
+                <p class="color-name-simple">Beige</p>
+                <p class="color-hex-simple">#D4C4A8</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="section-2" style="padding: 0; max-width: 100%;">
+        <div class="gallery-editorial">
+            <div class="editorial-card featured fade-in">
+                <img src="https://i.imgur.com/h0C6vcn.jpeg" alt="Nouf Temimi Wedding" loading="lazy">
+                <div class="editorial-caption">
+                    <p class="caption-label">The Venue</p>
+                    <p class="caption-title">Sacred Space</p>
+                </div>
+            </div>
+            
+            <div class="editorial-card fade-in" style="transition-delay: 0.1s;">
+                <img src="https://i.imgur.com/UOB6H92.jpeg" alt="Wedding Details" loading="lazy">
+                <div class="editorial-caption">
+                    <p class="caption-title">Elegant Details</p>
+                </div>
+            </div>
+            
+            <div class="editorial-card fade-in" style="transition-delay: 0.2s;">
+                <img src="https://i.imgur.com/0UdF90H.jpeg" alt="Floral Design" loading="lazy">
+                <div class="editorial-caption">
+                    <p class="caption-title">Botanical Art</p>
+                </div>
+            </div>
+            
+            <div class="editorial-card featured fade-in" style="transition-delay: 0.1s;">
+                <img src="https://i.imgur.com/VFCcNW0.jpeg" alt="Wedding Atmosphere" loading="lazy">
+                <div class="editorial-caption">
+                    <p class="caption-label">The Celebration</p>
+                    <p class="caption-title">Golden Hour</p>
+                </div>
+            </div>
+            
+            <div class="editorial-card fade-in" style="transition-delay: 0.2s;">
+                <img src="https://i.imgur.com/vw4TIGx.jpeg" alt="Wedding Moments" loading="lazy">
+                <div class="editorial-caption">
+                    <p class="caption-title">Pure Joy</p>
+                </div>
+            </div>
+            
+            <div class="editorial-card fade-in" style="transition-delay: 0.3s;">
+                <img src="https://i.imgur.com/ecg3Pzp.jpeg" alt="Wedding Beauty" loading="lazy">
+                <div class="editorial-caption">
+                    <p class="caption-title">Timeless Beauty</p>
+                </div>
+            </div>
+            
+            <div class="editorial-card featured fade-in" style="transition-delay: 0.1s;">
+                <img src="https://i.imgur.com/ahOQK0w.jpeg" alt="Wedding Scene" loading="lazy">
+                <div class="editorial-caption">
+                    <p class="caption-label">The Details</p>
+                    <p class="caption-title">Curated Perfection</p>
+                </div>
+            </div>
+            
+            <div class="editorial-card fade-in" style="transition-delay: 0.2s;">
+                <img src="https://i.imgur.com/l5rg8Iy.jpeg" alt="Wedding Light" loading="lazy">
+                <div class="editorial-caption">
+                    <p class="caption-title">Luminous</p>
+                </div>
+            </div>
+            
+            <div class="editorial-card fade-in" style="transition-delay: 0.3s;">
+                <img src="https://i.imgur.com/KBUVUaQ.jpeg" alt="Wedding Romance" loading="lazy">
+                <div class="editorial-caption">
+                    <p class="caption-title">Romance</p>
+                </div>
+            </div>
+            
+            <div class="editorial-card featured fade-in" style="transition-delay: 0.1s;">
+                <img src="https://i.imgur.com/XXOTrBU.jpeg" alt="Wedding Evening" loading="lazy">
+                <div class="editorial-caption">
+                    <p class="caption-label">The Night</p>
+                    <p class="caption-title">Evening Magic</p>
+                </div>
+            </div>
+            
+            <div class="editorial-card fade-in" style="transition-delay: 0.2s;">
+                <img src="https://i.imgur.com/UHrL2F8.jpeg" alt="Wedding Intimacy" loading="lazy">
+                <div class="editorial-caption">
+                    <p class="caption-title">Intimacy</p>
+                </div>
+            </div>
+            
+            <div class="editorial-card fade-in" style="transition-delay: 0.3s;">
+                <img src="https://i.imgur.com/SE745k0.jpeg" alt="Wedding Dreams" loading="lazy">
+                <div class="editorial-caption">
+                    <p class="caption-title">Dreams</p>
+                </div>
+            </div>
+            
+            <div class="editorial-card featured fade-in" style="transition-delay: 0.2s;">
+                <img src="https://i.imgur.com/OVkE6tT.jpeg" alt="Wedding Finale" loading="lazy">
+                <div class="editorial-caption">
+                    <p class="caption-label">Forever</p>
+                    <p class="caption-title" style="font-size: 32px;">The Beginning</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Date Badge -->
+    <div class="date-badge">
+        <div class="date-badge-label">Save the Date</div>
+        <div class="date-badge-date">24 . 04 . 2026</div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <img src="https://i.imgur.com/uJqy10F.jpeg" alt="Logo" class="footer-logo">
+        
+        <p class="footer-bride serif">Nouf Temimi</p>
+        <p class="footer-date">April 24, 2026</p>
+        
+        <div class="footer-designer">
+            <p>Designed by</p>
+            <p>Mohamed Tunis</p>
+        </div>
+        
+        <p class="footer-role">Wedding Design & Styling</p>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Color copied</div>
+
+    <!-- Scripts -->
+    <script>
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Copy color function
+        function copyColor(hex) {
+            navigator.clipboard.writeText(hex).then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 2000);
+            });
+        }
+
+        // Navigation dots
+        const sections = document.querySelectorAll('section');
+        const dots = document.querySelectorAll('.nav-dot');
+        
+        function scrollToSection(index) {
+            sections[index].scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Update active dot on scroll
+        window.addEventListener('scroll', () => {
+            let current = 0;
+            sections.forEach((section, index) => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 500) {
+                    current = index;
+                }
+            });
+            
+            dots.forEach((dot, index) => {
+                if (index === current) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+            
+            // Logo color change based on background
+            const logo = document.getElementById('mainLogo');
+            if (current === 0 || current === 2) {
+                logo.classList.add('light');
+            } else {
+                logo.classList.remove('light');
+            }
+        });
+    </script>
+
+</body>
+</html>
